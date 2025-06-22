@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="description" content="A Habit Tracker Progressive Web App" />
+    <title>Habit Tracker</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Include any external fonts or stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS will be compiled here -->
+    <link rel="stylesheet" href="/src/index.css" />
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <div id="root"></div>
+
+    <!-- Vite's Service Worker for PWA (if enabled) -->
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js').then((registration) => {
+          console.log('Service Worker registered: ', registration);
+        }).catch((error) => {
+          console.log('Service Worker registration failed: ', error);
+        });
+      }
+    </script>
+  </body>
+</html>
